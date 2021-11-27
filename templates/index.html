@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align: center;" id="pageBody">
+    <h1>Final Project</h1>
+    <h2>Visualization of Pose-Detection Algorithm.</h2>
+    <hr>
+    <h1>Mann Prajapati | U52609954</h1>
+
+
+    <div style="text-align: center;">
+        <form action="javascript:getData()" id="myForm">
+
+            <select name="selectedVideo">
+                {% for video in video_list %}
+                    <option value="{{ video }}">{{ video }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    <br>
+    <div class="loading loading--full-height" id="loading"></div>
+    <div style="text-align: center;">
+        {{ video_message }}<br>
+        <video width="50%" height="50%" controls autoplay muted>
+            <source src="{{ url_for('static', filename = video_name ) }}" type="video/mp4">
+        </video>
+    </div>
+<script>
+    $(window).on('load', function () {
+    $('#loading').hide();
+  })
+</script>
+</div>
+</body>
+</html>
