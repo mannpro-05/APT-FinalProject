@@ -30,6 +30,7 @@ out of the json data which is sent form the front-end via Ajax.
 def get_video_name():
     if request.method == "POST":
         video_request = request.get_json()
+        print(video_request)
         pose_data = pd.read_csv("pose-output.csv")
         video_list = list(pose_data.values[:, 0])
         start = time.time()
